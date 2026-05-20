@@ -1,0 +1,53 @@
+# Dépendances
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Builds & caches
+frontend/.next/
+frontend/out/
+backend/dist/
+mobile_agent/build/
+mobile_agent/android/build/
+mobile_agent/.dart_tool/
+**/.dart_tool/
+
+# Python
+python_ai/venv/
+ia/venv/
+__pycache__/
+*.pyc
+.Python
+
+# Environnement (secrets)
+.env
+backend/.env
+frontend/.env.local
+*.env.local
+
+# Uploads & données locales
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Archives générées localement
+dist-archives/
+*.zip
+
+# Fichiers temporaires projet
+p.txt
+p.json
+env.json
+frontend/build_log.txt
+python_ai/pdf_text.txt
+python_ai/pdf_annots.txt

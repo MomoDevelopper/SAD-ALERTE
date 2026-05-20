@@ -1,0 +1,7 @@
+Placez ici vos PDF de demonstration pour la soutenance :
+
+1. rapport_attaque_sahel.pdf  (contient : attaque, terroriste, embuscade)
+2. rapport_routine.pdf        (texte administratif neutre)
+
+Creez-les avec Word ou LibreOffice (1 page), puis Export PDF.
+Voir docs/soutenance/C-SCENARIO-DEMO-LIVE.md pour le script complet.

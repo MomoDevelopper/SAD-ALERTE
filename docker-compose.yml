@@ -1,0 +1,28 @@
+# PostgreSQL + PostGIS pour SAD-ALERTE (développement local).
+# DATABASE_URL attendue par le backend : voir backend/.env.example
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: sad_alerte_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sad_alerte
+    # Port hôte 5433 : évite les conflits avec un PostgreSQL local sur 5432.
+    # La base « officielle » du projet en dev est toujours ce conteneur.
+    ports:
+      - "5433:5432"
+    volumes:
+      - sad_alerte_pgdata:/var/lib/postgresql/data
+      # Exécuté uniquement au premier démarrage (volume vide)
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sad_alerte"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  sad_alerte_pgdata:
